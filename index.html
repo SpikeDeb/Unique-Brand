@@ -1,123 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Unique Brand - CTG</title>
-  <!-- Tailwind CSS & FontAwesome -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Plus Jakarta Sans', sans-serif; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pay After Placement | Spike Technologies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb', // Modern Blue
+                        secondary: '#1e40af', // Darker Blue for hover
+                        dark: '#0f172a',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="bg-gray-900 text-gray-100 antialiased">
+<body class="bg-gray-50 font-sans text-gray-800 antialiased">
 
-  <!-- Header -->
-  <header class="sticky top-0 z-50 bg-black/90 backdrop-blur border-b border-gray-800">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <div class="flex items-center space-x-2">
-        <div class="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center font-black text-xl text-white shadow-lg shadow-red-600/30">
-          UB
+    <!-- Navbar -->
+    <nav class="bg-white shadow-sm py-4 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fa-solid fa-bolt text-primary text-2xl"></i>
+                <span class="font-bold text-2xl text-dark tracking-tight">SPIKE</span>
+            </div>
+            <a href="#pricing" class="bg-primary hover:bg-secondary text-white px-5 py-2 rounded-lg font-semibold transition duration-300">
+                Book Your Seat
+            </a>
         </div>
-        <div>
-          <h1 class="text-lg font-bold leading-none text-white">UNIQUE BRAND</h1>
-          <span class="text-xs text-red-500 font-semibold tracking-widest">CHITTAGONG</span>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-dark text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="bg-blue-900 text-blue-200 text-sm font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                Next Cohort Starts This Sunday
+            </span>
+            <h1 class="mt-6 text-4xl md:text-6xl font-extrabold leading-tight">
+                Become a Web Developer. <br>
+                <span class="text-primary">Pay ₹0 Until You Get Placed.</span>
+            </h1>
+            <p class="mt-6 text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+                No hidden fees. No upfront tuition. Sign our digital Income Share Agreement (ISA) and pay only after you secure a job of minimum ₹4 LPA.
+            </p>
+            <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#pricing" class="bg-primary hover:bg-secondary text-white px-8 py-4 rounded-lg font-bold text-lg transition duration-300 shadow-lg shadow-blue-500/30 flex items-center justify-center">
+                    Claim Your Starter Pack for ₹99 <i class="fa-solid fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+            <p class="mt-4 text-sm text-gray-400">⚡ Only 20 Seats Available. 100% Refundable Guarantee.</p>
         </div>
-      </div>
-      <a href="https://wa.me/8801406070224" target="_blank" class="bg-green-500 hover:bg-green-600 text-black font-bold px-4 py-2 rounded-full text-sm flex items-center space-x-2 shadow-lg shadow-green-500/20">
-        <i class="fab fa-whatsapp text-lg"></i>
-        <span class="hidden sm:inline">Order on WhatsApp</span>
-      </a>
-    </div>
-  </header>
+    </header>
 
-  <!-- Hero Section -->
-  <section class="py-12 px-4 text-center bg-gradient-to-b from-black to-gray-900">
-    <div class="max-w-3xl mx-auto space-y-4">
-      <span class="inline-block bg-red-500/20 text-red-400 font-bold text-xs px-3 py-1 rounded-full border border-red-500/30 uppercase tracking-widest">
-        🔥 FLAT 50% DISCOUNT
-      </span>
-      <h2 class="text-3xl sm:text-5xl font-extrabold text-white">
-        Premium Men's Clothing
-      </h2>
-      <p class="text-gray-400 text-sm sm:text-base max-w-md mx-auto">
-        Elevate your style with our latest collection of shirts & polos.
-      </p>
-    </div>
-  </section>
-
-  <!-- Products Section -->
-  <section class="max-w-6xl mx-auto px-4 py-8">
-    <h3 class="text-xl font-bold text-white mb-6 border-l-4 border-red-600 pl-3">Featured Products</h3>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-      <!-- Product Card 1 -->
-      <div class="bg-gray-800/80 rounded-2xl overflow-hidden border border-gray-700 hover:border-red-500 transition-all">
-        <div class="relative aspect-[4/5] bg-gray-900">
-          <span class="absolute top-3 left-3 z-10 bg-red-600 text-white font-bold text-xs px-2 py-1 rounded">50% OFF</span>
-          <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&auto=format&fit=crop" alt="Printed Casual Shirt" class="w-full h-full object-cover">
+    <!-- How It Works Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-dark">How The Process Works</h2>
+                <p class="text-gray-600 mt-2">100% Transparent. Zero Financial Risk.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="bg-gray-50 p-8 rounded-xl border border-gray-100 shadow-sm text-center">
+                    <div class="w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
+                    <h3 class="text-xl font-bold mb-2">Secure Your Seat</h3>
+                    <p class="text-gray-600">Pay a refundable ₹99 deposit to get your Premium Developer Starter Pack and book your spot.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="bg-gray-50 p-8 rounded-xl border border-gray-100 shadow-sm text-center">
+                    <div class="w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
+                    <h3 class="text-xl font-bold mb-2">Learn & Build</h3>
+                    <p class="text-gray-600">Attend live masterclasses, build real-world HTML/Tailwind projects, and prepare for interviews.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="bg-gray-50 p-8 rounded-xl border border-gray-100 shadow-sm text-center">
+                    <div class="w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
+                    <h3 class="text-xl font-bold mb-2">Get Placed & Pay</h3>
+                    <p class="text-gray-600">Only pay the course fee after you successfully secure a tech job. No job? No fee.</p>
+                </div>
+            </div>
         </div>
-        <div class="p-4 space-y-3">
-          <h4 class="font-bold text-white text-base">Printed Casual Shirt</h4>
-          <div class="flex items-center space-x-2">
-            <span class="text-xl font-bold text-white">₹600</span>
-            <span class="text-sm text-gray-500 line-through">₹1,200</span>
-          </div>
-          <a href="https://wa.me/8801406070224?text=Hi,%20I%20want%20to%20order%20Printed%20Casual%20Shirt" target="_blank" class="w-full bg-green-500 hover:bg-green-600 text-black font-bold py-2.5 rounded-xl flex items-center justify-center space-x-2 transition-all">
-            <i class="fab fa-whatsapp text-lg"></i>
-            <span>Buy via WhatsApp</span>
-          </a>
-        </div>
-      </div>
+    </section>
 
-      <!-- Product Card 2 -->
-      <div class="bg-gray-800/80 rounded-2xl overflow-hidden border border-gray-700 hover:border-red-500 transition-all">
-        <div class="relative aspect-[4/5] bg-gray-900">
-          <span class="absolute top-3 left-3 z-10 bg-red-600 text-white font-bold text-xs px-2 py-1 rounded">50% OFF</span>
-          <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&auto=format&fit=crop" alt="Minimal Cotton Shirt" class="w-full h-full object-cover">
+    <!-- Value Stack (The ₹99 Offer) -->
+    <section id="pricing" class="py-16 bg-dark text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gray-800 rounded-2xl overflow-hidden shadow-2xl border border-gray-700">
+                <div class="p-8 md:p-12 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-8">
+                    <div class="flex-1">
+                        <h2 class="text-3xl font-bold mb-4">The Web Developer Starter Pack</h2>
+                        <p class="text-gray-300 mb-6">To start your training, grab this toolkit. Value: <span class="line-through text-gray-500">₹1,499</span></p>
+                        <ul class="space-y-3 mb-8 text-left text-gray-200">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-green-400 mr-3"></i> 3 Premium Tailwind CSS Portfolio Templates</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-green-400 mr-3"></i> Top 50 AI Prompts for HR Interviews</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-green-400 mr-3"></i> Razorpay Integration Code Snippet</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-green-400 mr-3"></i> <b>Guaranteed Seat in Live Class</b></li>
+                        </ul>
+                        <!-- Replace # with your Razorpay Payment Link -->
+                        <a href="#" class="inline-block w-full text-center bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-lg text-lg transition duration-300 shadow-lg shadow-green-500/30">
+                            Get Everything For Just ₹99
+                        </a>
+                        <p class="text-xs text-gray-400 text-center mt-3"><i class="fa-solid fa-shield-halved mr-1"></i> 7-Day No-Questions-Asked Money Back Guarantee</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="p-4 space-y-3">
-          <h4 class="font-bold text-white text-base">Minimal Cotton Shirt</h4>
-          <div class="flex items-center space-x-2">
-            <span class="text-xl font-bold text-white">₹700</span>
-            <span class="text-sm text-gray-500 line-through">₹1,400</span>
-          </div>
-          <a href="https://wa.me/8801406070224?text=Hi,%20I%20want%20to%20order%20Minimal%20Cotton%20Shirt" target="_blank" class="w-full bg-green-500 hover:bg-green-600 text-black font-bold py-2.5 rounded-xl flex items-center justify-center space-x-2 transition-all">
-            <i class="fab fa-whatsapp text-lg"></i>
-            <span>Buy via WhatsApp</span>
-          </a>
-        </div>
-      </div>
+    </section>
 
-      <!-- Product Card 3 -->
-      <div class="bg-gray-800/80 rounded-2xl overflow-hidden border border-gray-700 hover:border-red-500 transition-all">
-        <div class="relative aspect-[4/5] bg-gray-900">
-          <span class="absolute top-3 left-3 z-10 bg-red-600 text-white font-bold text-xs px-2 py-1 rounded">50% OFF</span>
-          <img src="https://images.unsplash.com/photo-1625910513413-282305342a39?w=600&auto=format&fit=crop" alt="Classic Solid Polo" class="w-full h-full object-cover">
+    <!-- Trust Elements -->
+    <section class="py-12 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h3 class="text-2xl font-bold mb-8">Why Trust Spike Technologies?</h3>
+            <div class="flex justify-center gap-8 flex-wrap">
+                <div class="flex items-center"><i class="fa-solid fa-file-signature text-3xl text-primary mr-3"></i><span class="font-semibold">Legal Digital Agreement</span></div>
+                <div class="flex items-center"><i class="fa-solid fa-ban text-3xl text-primary mr-3"></i><span class="font-semibold">Zero Hidden Registration Fees</span></div>
+                <div class="flex items-center"><i class="fa-solid fa-briefcase text-3xl text-primary mr-3"></i><span class="font-semibold">Live Project Portfolio</span></div>
+            </div>
         </div>
-        <div class="p-4 space-y-3">
-          <h4 class="font-bold text-white text-base">Classic Solid Polo</h4>
-          <div class="flex items-center space-x-2">
-            <span class="text-xl font-bold text-white">₹500</span>
-            <span class="text-sm text-gray-500 line-through">₹1,000</span>
-          </div>
-          <a href="https://wa.me/8801406070224?text=Hi,%20I%20want%20to%20order%20Classic%20Solid%20Polo" target="_blank" class="w-full bg-green-500 hover:bg-green-600 text-black font-bold py-2.5 rounded-xl flex items-center justify-center space-x-2 transition-all">
-            <i class="fab fa-whatsapp text-lg"></i>
-            <span>Buy via WhatsApp</span>
-          </a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 py-8">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="text-gray-500 text-sm">
+                &copy; 2026 Spike Technologies. All rights reserved.
+            </div>
+            <div class="text-gray-500 text-sm font-medium">
+                Founder: Debjit Das
+            </div>
         </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="border-t border-gray-800 bg-black py-6 text-center text-xs text-gray-500 mt-12">
-    <p>&copy; Unique Brand - CTG. All rights reserved.</p>
-  </footer>
+    </footer>
 
 </body>
 </html>
