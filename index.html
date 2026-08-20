@@ -1,354 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cyber Runner Game</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    body {
-      background: #0f172a;
-      color: #f8fafc;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      overflow: hidden;
-      user-select: none;
-    }
-
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-      color: #38bdf8;
-      text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
-    }
-
-    .game-container {
-      position: relative;
-      width: 800px;
-      height: 300px;
-      background: linear-gradient(to bottom, #1e293b, #0f172a);
-      border: 3px solid #38bdf8;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-    }
-
-    canvas {
-      display: block;
-      width: 100%;
-      height: 100%;
-    }
-
-    .ui-overlay {
-      position: absolute;
-      top: 15px;
-      left: 20px;
-      right: 20px;
-      display: flex;
-      justify-content: space-between;
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: #f1f5f9;
-      pointer-events: none;
-    }
-
-    .game-over-screen {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(15, 23, 42, 0.85);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      backdrop-filter: blur(4px);
-    }
-
-    .game-over-screen h2 {
-      font-size: 2.5rem;
-      color: #f43f5e;
-      margin-bottom: 10px;
-    }
-
-    .game-over-screen p {
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-      color: #cbd5e1;
-    }
-
-    .btn-restart {
-      padding: 12px 28px;
-      font-size: 1.1rem;
-      font-weight: bold;
-      color: #0f172a;
-      background: #38bdf8;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
-    }
-
-    .btn-restart:hover {
-      background: #7dd3fc;
-      transform: scale(1.05);
-    }
-
-    .controls-hint {
-      margin-top: 15px;
-      font-size: 0.95rem;
-      color: #94a3b8;
-    }
-
-    @media (max-width: 850px) {
-      .game-container {
-        width: 95vw;
-        height: 250px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spike Skills - Upskill and Get Hired</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            500: '#3b82f6', // Professional Blue Theme
+                            600: '#2563eb',
+                            900: '#1e3a8a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-900 font-sans antialiased">
 
-  <h1>🏃 CYBER RUNNER</h1>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <a href="#" class="font-extrabold text-2xl tracking-tight text-gray-900">
+                    SPIKE <span class="text-brand-600">SKILLS</span>
+                </a>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#courses" class="font-medium text-gray-600 hover:text-brand-600">Courses</a>
+                    <a href="#placements" class="font-medium text-gray-600 hover:text-brand-600">Placements</a>
+                    <a href="#" class="font-semibold text-brand-600 bg-brand-50 border border-brand-500 px-6 py-2 rounded-lg hover:bg-brand-600 hover:text-white transition">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-  <div class="game-container">
-    <div class="ui-overlay">
-      <div id="scoreDisplay">Score: 0</div>
-      <div id="highScoreDisplay">High Score: 0</div>
-    </div>
+    <!-- Hero Section -->
+    <section class="bg-white py-20 lg:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-block bg-brand-50 text-brand-600 font-semibold px-4 py-1 rounded-full mb-6 border border-brand-200">
+                🚀 100% Placement Assistance
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
+                Master Top Tech Skills. <br>
+                <span class="text-brand-600">Land Your Dream Job.</span>
+            </h1>
+            <p class="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
+                Join Spike Skills to learn real-world technologies from industry experts. Build projects, prepare for interviews, and start your career in top MNCs.
+            </p>
+            <a href="#courses" class="bg-brand-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-brand-500 transition">
+                Explore Our Courses
+            </a>
+        </div>
+    </section>
 
-    <canvas id="gameCanvas"></canvas>
+    <!-- Stats Section -->
+    <section id="placements" class="bg-gray-900 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-gray-700">
+            <div>
+                <p class="text-4xl font-extrabold text-white mb-2">95%</p>
+                <p class="text-gray-400 font-medium">Placement Rate</p>
+            </div>
+            <div>
+                <p class="text-4xl font-extrabold text-white mb-2">₹7.5 LPA</p>
+                <p class="text-gray-400 font-medium">Average Package</p>
+            </div>
+            <div>
+                <p class="text-4xl font-extrabold text-white mb-2">300+</p>
+                <p class="text-gray-400 font-medium">Hiring Partners</p>
+            </div>
+            <div>
+                <p class="text-4xl font-extrabold text-white mb-2">500+</p>
+                <p class="text-gray-400 font-medium">Students Enrolled</p>
+            </div>
+        </div>
+    </section>
 
-    <div class="game-over-screen" id="gameOverScreen" style="display: none;">
-      <h2>GAME OVER</h2>
-      <p id="finalScoreText">Your Score: 0</p>
-      <button class="btn-restart" id="restartBtn">Play Again</button>
-    </div>
-  </div>
+    <!-- Courses Section -->
+    <section id="courses" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Our Premium Programs</h2>
+                <p class="mt-4 text-lg text-gray-600">Industry-vetted curriculum designed for success.</p>
+            </div>
 
-  <div class="controls-hint">
-    Press <b>SPACEBAR</b> or <b>TAP / CLICK</b> on screen to Jump!
-  </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                
+                <!-- Course 1 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 flex flex-col hover:shadow-xl transition">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">💻 Full Stack Web Development</h3>
+                    <p class="text-gray-600 mb-6 flex-grow">Master MERN stack (MongoDB, Express, React, Node.js) and build scalable web applications from scratch.</p>
+                    <ul class="space-y-2 mb-6 text-gray-600 font-medium">
+                        <li>⏱ Duration: 6 Months</li>
+                        <li>📁 10+ Real-world Projects</li>
+                        <li>🤝 Interview Preparation</li>
+                    </ul>
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="text-2xl font-bold text-gray-900">₹14,999</span>
+                        <a href="#" class="bg-brand-600 text-white font-bold px-6 py-2 rounded-lg hover:bg-brand-500 transition">Enroll Now</a>
+                    </div>
+                </div>
 
-  <script>
-    const canvas = document.getElementById('gameCanvas');
-    const ctx = canvas.getContext('2d');
-    const scoreDisplay = document.getElementById('scoreDisplay');
-    const highScoreDisplay = document.getElementById('highScoreDisplay');
-    const gameOverScreen = document.getElementById('gameOverScreen');
-    const finalScoreText = document.getElementById('finalScoreText');
-    const restartBtn = document.getElementById('restartBtn');
+                <!-- Course 2 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 flex flex-col hover:shadow-xl transition">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">📊 Data Science & AI</h3>
+                    <p class="text-gray-600 mb-6 flex-grow">Learn Python, Machine Learning, and AI. Become a data professional capable of solving complex problems.</p>
+                    <ul class="space-y-2 mb-6 text-gray-600 font-medium">
+                        <li>⏱ Duration: 8 Months</li>
+                        <li>📁 Learn Python, SQL, PowerBI</li>
+                        <li>🤝 Guaranteed Interviews</li>
+                    </ul>
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="text-2xl font-bold text-gray-900">₹19,999</span>
+                        <a href="#" class="bg-brand-600 text-white font-bold px-6 py-2 rounded-lg hover:bg-brand-500 transition">Enroll Now</a>
+                    </div>
+                </div>
 
-    // Canvas Sizing
-    canvas.width = 800;
-    canvas.height = 300;
+                <!-- Course 3 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 flex flex-col hover:shadow-xl transition">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">📱 Advanced Digital Marketing</h3>
+                    <p class="text-gray-600 mb-6 flex-grow">Become an expert in SEO, Performance Marketing (Meta & Google Ads), and Social Media Growth.</p>
+                    <ul class="space-y-2 mb-6 text-gray-600 font-medium">
+                        <li>⏱ Duration: 3 Months</li>
+                        <li>📁 Live Ad Budget Handling</li>
+                        <li>🤝 Agency Level Training</li>
+                    </ul>
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="text-2xl font-bold text-gray-900">₹9,999</span>
+                        <a href="#" class="bg-brand-600 text-white font-bold px-6 py-2 rounded-lg hover:bg-brand-500 transition">Enroll Now</a>
+                    </div>
+                </div>
 
-    // Game Variables
-    let gameSpeed = 6;
-    let score = 0;
-    let highScore = localStorage.getItem('runner_highscore') || 0;
-    let isGameOver = false;
-    let frameCount = 0;
-    let obstacles = [];
+                <!-- Course 4 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 flex flex-col hover:shadow-xl transition">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">🎨 UI/UX Product Design</h3>
+                    <p class="text-gray-600 mb-6 flex-grow">Learn Figma, User Research, and Prototyping. Design digital products that users love.</p>
+                    <ul class="space-y-2 mb-6 text-gray-600 font-medium">
+                        <li>⏱ Duration: 4 Months</li>
+                        <li>📁 Portfolio Building</li>
+                        <li>🤝 Freelance & Job Ready</li>
+                    </ul>
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="text-2xl font-bold text-gray-900">₹11,999</span>
+                        <a href="#" class="bg-brand-600 text-white font-bold px-6 py-2 rounded-lg hover:bg-brand-500 transition">Enroll Now</a>
+                    </div>
+                </div>
 
-    highScoreDisplay.textContent = `High Score: ${highScore}`;
+            </div>
+        </div>
+    </section>
 
-    // Player Object
-    const player = {
-      x: 80,
-      y: 200,
-      width: 40,
-      height: 50,
-      color: '#38bdf8',
-      velocityY: 0,
-      gravity: 0.8,
-      jumpPower: -14,
-      isGrounded: false,
-      
-      draw() {
-        // Character Body
-        ctx.fillStyle = this.color;
-        ctx.shadowBlur = 15;
-        ctx.shadowColor = this.color;
-        ctx.fillRect(this.x, this.y, this.width, this.height);
-        ctx.shadowBlur = 0; // Reset glow
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12 text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-white mb-4">SPIKE SKILLS</h2>
+            <p class="mb-6">Empowering students with industry-relevant skills.</p>
+            <p>&copy; 2026 Spike Skills. All rights reserved.</p>
+        </div>
+    </footer>
 
-        // Eye (Goggles effect)
-        ctx.fillStyle = '#0f172a';
-        ctx.fillRect(this.x + 22, this.y + 10, 14, 8);
-      },
-
-      jump() {
-        if (this.isGrounded) {
-          this.velocityY = this.jumpPower;
-          this.isGrounded = false;
-        }
-      },
-
-      update() {
-        this.velocityY += this.gravity;
-        this.y += this.velocityY;
-
-        // Ground Collision
-        const groundY = canvas.height - 40 - this.height;
-        if (this.y >= groundY) {
-          this.y = groundY;
-          this.velocityY = 0;
-          this.isGrounded = true;
-        }
-      }
-    };
-
-    // Obstacle Class
-    class Obstacle {
-      constructor() {
-        this.width = 25 + Math.random() * 20;
-        this.height = 30 + Math.random() * 35;
-        this.x = canvas.width;
-        this.y = canvas.height - 40 - this.height;
-        this.color = '#f43f5e';
-      }
-
-      draw() {
-        ctx.fillStyle = this.color;
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = this.color;
-        ctx.fillRect(this.x, this.y, this.width, this.height);
-        ctx.shadowBlur = 0;
-      }
-
-      update() {
-        this.x -= gameSpeed;
-      }
-    }
-
-    // Draw Ground
-    function drawGround() {
-      ctx.fillStyle = '#334155';
-      ctx.fillRect(0, canvas.height - 40, canvas.width, 40);
-
-      // Neon Top Border for Ground
-      ctx.strokeStyle = '#38bdf8';
-      ctx.lineWidth = 3;
-      ctx.beginPath();
-      ctx.moveTo(0, canvas.height - 40);
-      ctx.lineTo(canvas.width, canvas.height - 40);
-      ctx.stroke();
-    }
-
-    // Spawn Obstacles
-    function handleObstacles() {
-      frameCount++;
-      // Spawn obstacle periodically (random gap)
-      if (frameCount % Math.floor(1000 / (gameSpeed * 10)) === 0) {
-        obstacles.push(new Obstacle());
-      }
-
-      for (let i = 0; i < obstacles.length; i++) {
-        obstacles[i].update();
-        obstacles[i].draw();
-
-        // Collision Detection
-        if (
-          player.x < obstacles[i].x + obstacles[i].width &&
-          player.x + player.width > obstacles[i].x &&
-          player.y < obstacles[i].y + obstacles[i].height &&
-          player.y + player.height > obstacles[i].y
-        ) {
-          triggerGameOver();
-        }
-      }
-
-      // Remove offscreen obstacles
-      obstacles = obstacles.filter(obs => obs.x + obs.width > 0);
-    }
-
-    // Game Loop
-    function animate() {
-      if (isGameOver) return;
-
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      drawGround();
-
-      player.update();
-      player.draw();
-
-      handleObstacles();
-
-      // Update Score & Speed
-      score++;
-      if (score % 500 === 0) gameSpeed += 0.5; // Slowly increase speed
-
-      scoreDisplay.textContent = `Score: ${Math.floor(score / 5)}`;
-
-      requestAnimationFrame(animate);
-    }
-
-    // Game Over Logic
-    function triggerGameOver() {
-      isGameOver = true;
-      const finalScore = Math.floor(score / 5);
-      finalScoreText.textContent = `Your Score: ${finalScore}`;
-
-      if (finalScore > highScore) {
-        highScore = finalScore;
-        localStorage.setItem('runner_highscore', highScore);
-        highScoreDisplay.textContent = `High Score: ${highScore}`;
-      }
-
-      gameOverScreen.style.display = 'flex';
-    }
-
-    // Reset Game
-    function resetGame() {
-      gameSpeed = 6;
-      score = 0;
-      frameCount = 0;
-      obstacles = [];
-      isGameOver = false;
-      player.y = canvas.height - 40 - player.height;
-      player.velocityY = 0;
-      gameOverScreen.style.display = 'none';
-      animate();
-    }
-
-    // Controls
-    window.addEventListener('keydown', (e) => {
-      if (e.code === 'Space' || e.code === 'ArrowUp') {
-        e.preventDefault();
-        player.jump();
-      }
-    });
-
-    window.addEventListener('touchstart', (e) => {
-      if (!isGameOver) {
-        player.jump();
-      }
-    });
-
-    canvas.addEventListener('click', () => {
-      if (!isGameOver) {
-        player.jump();
-      }
-    });
-
-    restartBtn.addEventListener('click', resetGame);
-
-    // Start Game Loop
-    animate();
-  </script>
 </body>
 </html>
